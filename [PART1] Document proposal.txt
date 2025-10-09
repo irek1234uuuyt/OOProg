@@ -1,5 +1,7 @@
-﻿Title: CaJer eBank
+Member: CASALLA, FRED ERICK
+        CABILLON, JERXEL
 
+Title: CaJer eBank
 
 Current Functionality
 User Authentication
@@ -36,4 +38,5 @@ Fund Transfer Page
 * Updates balances for both sender and receiver after a successful transfer.
 Exit Page
 * Safely ends the session and logs out the user.
+
 * Returns to the login page or closes the session securely.
