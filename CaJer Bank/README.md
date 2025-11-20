@@ -25,22 +25,17 @@ CaJer eBank is a simple JavaFX-based banking application created for our Object-
     * Java JDK 8 or higher
     * JavaFX SDK (if not using IntelliJ IDEA)
 
-2. **Clone the Repository**:
+2. **Open the project folder**:
     ```bash
-    git clone https://github.com/yourusername/cajer-ebank.git
+    cd "CaJer Bank\CaJerBank\src"
     ```
 
-3. **Open the project folder**:
+3. **Compile the Java Files**:
     ```bash
-    cd cajer-ebank
+    javac --module-path "PATH_TO_FX/lib" --add-modules javafx.controls,javafx.fxml caje/bank/*.java
     ```
 
-4. **Compile the Java Files**:
+4. **Run the Application**:
     ```bash
-    javac --module-path "PATH_TO_FX/lib" --add-modules javafx.controls -d out src/caje/bank/*.java
-    ```
-
-5. **Run the Application**:
-    ```bash
-    java --module-path "PATH_TO_FX/lib" --add-modules javafx.controls -cp out caje.bank.CaJerBankFileApp
+    java --module-path "PATH_TO_FX/lib" --add-modules javafx.controls,javafx.fxml caje.bank.CaJerBankFileApp
     ```
