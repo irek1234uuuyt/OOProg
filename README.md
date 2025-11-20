@@ -1,4 +1,4 @@
-# CaJer eBank – Simple JavaFX Banking System
+# CaJer Bank: OOP Final Project
 
 ## Author: Casalla & Jerxel
 
