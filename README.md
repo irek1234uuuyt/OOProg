@@ -27,7 +27,7 @@ CaJer eBank is a simple JavaFX-based banking application created for our Object-
 
 2. **Open the project folder**:
     ```bash
-    cd "CaJer Bank\CaJerBank\src"
+    cd "CaJerBank\src"
     ```
 
 3. **Compile the Java Files**:
