@@ -1,0 +1,42 @@
+Member: CASALLA, FRED ERICK
+        CABILLON, JERXEL
+
+Title: CaJer eBank
+
+Current Functionality
+User Authentication
+* Users log in using a simulated bank card number and PIN.
+* Upon successful verification, they gain access to their digital account dashboard.
+Transactions Supported
+* Digital Withdrawal: Transfer funds from the user’s account to an external eWallet.
+* Balance Inquiry: View current account balance.
+* Fund Transfer: Transfer money between simulated accounts within the CaJer CMS system.
+Application Pages
+Login Page
+* Users enter their card number and PIN to sign in.
+* Successful login redirects to the main menu; incorrect details trigger an error message.
+Main Menu
+Displays the available digital banking options:
+* Transfer to eWallet
+* Check Balance
+* Mini Statement
+* Transfer to Another Account
+* Exit System
+Transfer to eWallet Page
+* Users enter the amount and eWallet ID or number.
+* The system checks for sufficient funds, processes the digital transfer, and updates the account balance.
+* A transaction record is added to the mini statement.
+Balance Inquiry Page
+* Displays the current available balance in the user’s account.
+Mini Statement Page
+* Shows a summary of the last few transactions, including:
+   * eWallet transfers
+   * Fund transfers
+Fund Transfer Page
+* Allows transferring funds between CaJer CMS accounts (simulated users).
+* Requires the recipient’s account number and transfer amount.
+* Updates balances for both sender and receiver after a successful transfer.
+Exit Page
+* Safely ends the session and logs out the user.
+
+* Returns to the login page or closes the session securely.
