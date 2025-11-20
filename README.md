@@ -10,7 +10,6 @@ CaJer eBank is a simple JavaFX-based banking application created for our Object-
 * **Login System**: Sign in using account number and PIN
 * **Balance Display**: Shows available balance immediately after login
 * **Money Transfer**: Send funds to another existing account
-* **Search for Books**: Uses a **Linear Search algorithm** to find a specific book by its title.
 * **Input Validation**
     * Prevents sending money to yourself
     * Shows Insufficient Funds
