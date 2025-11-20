@@ -8,7 +8,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import java.util.List;
 
 public class CaJerBankFileApp extends Application {
 
@@ -22,7 +21,10 @@ public class CaJerBankFileApp extends Application {
     @Override
     public void start(Stage stage) {
         manager.loadAccounts();
+        showLogin(stage);
+    }
 
+    private void showLogin(Stage stage) { // login
         VBox loginLayout = new VBox(10);
         loginLayout.setPadding(new Insets(20));
 
@@ -34,6 +36,7 @@ public class CaJerBankFileApp extends Application {
 
         Button loginBtn = new Button("Login");
         Button signUpBtn = new Button("Sign Up");
+
         Label msg = new Label();
 
         loginBtn.setOnAction(e -> {
@@ -45,7 +48,7 @@ public class CaJerBankFileApp extends Application {
                 stage.setScene(new Scene(mainMenu(stage), 400, 150));
                 stage.setTitle("CaJer eBank");
             } else {
-                msg.setText("Wrong acc or PIN\n");
+                msg.setText("Wrong Account or PIN\n");
             }
         });
 
@@ -60,13 +63,12 @@ public class CaJerBankFileApp extends Application {
                 msg
         );
 
-        Scene scene = new Scene(loginLayout, 400, 210);
-        stage.setScene(scene);
+        stage.setScene(new Scene(loginLayout, 400, 210));
         stage.setTitle("CaJer eBank");
         stage.show();
     }
 
-    private VBox mainMenu(Stage stage) {
+    private VBox mainMenu(Stage stage) { // menu
         VBox box = new VBox(10);
         box.setPadding(new Insets(20));
 
@@ -80,14 +82,14 @@ public class CaJerBankFileApp extends Application {
         logoutBtn.setOnAction(e -> {
             manager.saveAccounts();
             currentUser = null;
-            start(stage);
+            showLogin(stage);
         });
 
         box.getChildren().addAll(welcomeLabel, balanceLabel, transferBtn, logoutBtn);
         return box;
     }
 
-    private void transfer(Stage stage) {
+    private void transfer(Stage stage) { // trasfer money
         VBox box = new VBox(10);
         box.setPadding(new Insets(20));
 
@@ -100,8 +102,7 @@ public class CaJerBankFileApp extends Application {
         Button sendBtn = new Button("Send");
         Button backBtn = new Button("Back");
 
-        HBox buttonBox = new HBox(10);
-        buttonBox.getChildren().addAll(sendBtn, backBtn);
+        HBox buttonBox = new HBox(10, sendBtn, backBtn);
         buttonBox.setAlignment(Pos.CENTER_RIGHT);
 
         Label msg = new Label();
@@ -109,10 +110,16 @@ public class CaJerBankFileApp extends Application {
         sendBtn.setOnAction(e -> {
             String rAcc = recipientAccField.getText().trim();
             double money;
-            try {
+
+            try { // checker
                 money = Double.parseDouble(amountField.getText().trim());
             } catch (Exception ex) {
                 msg.setText("Invalid Input\n");
+                return;
+            }
+
+            if (rAcc.equals(currentUser.getAccNum())) {
+                msg.setText("Cannot send to your own account\n");
                 return;
             }
 
@@ -125,12 +132,12 @@ public class CaJerBankFileApp extends Application {
             }
 
             if (recipient == null) {
-                msg.setText("Recipient not found\n");
+                msg.setText("Account not found\n");
                 return;
             }
 
             if (money <= 0 || currentUser.getBalance() < money) {
-                msg.setText("Not enough money\n");
+                msg.setText("Insufficient funds\n");
                 return;
             }
 
@@ -153,21 +160,23 @@ public class CaJerBankFileApp extends Application {
                 buttonBox
         );
 
-        Scene scene = new Scene(box, 400, 200);
-        stage.setScene(scene);
+        stage.setScene(new Scene(box, 400, 210));
         stage.setTitle("Transfer Funds");
     }
 
-    private void openSignUpForm(Stage stage) {
+    private void openSignUpForm(Stage stage) { // sigh in
         VBox box = new VBox(10);
         box.setPadding(new Insets(20));
 
         TextField accField = new TextField();
         accField.setPromptText("Account Number");
+
         TextField nameField = new TextField();
         nameField.setPromptText("Name");
+
         PasswordField pinField = new PasswordField();
         pinField.setPromptText("PIN");
+
         TextField balanceField = new TextField();
         balanceField.setPromptText("Initial Balance");
 
@@ -197,11 +206,10 @@ public class CaJerBankFileApp extends Application {
 
             UserAccount newUser = new UserAccount(accNum, pin, balance, name);
             manager.addUser(newUser);
-
-            start(stage); // Return to login
+            showLogin(stage);
         });
 
-        backBtn.setOnAction(e -> start(stage));
+        backBtn.setOnAction(e -> showLogin(stage));
 
         box.getChildren().addAll(
                 new Label("Sign Up"),
@@ -214,8 +222,7 @@ public class CaJerBankFileApp extends Application {
                 msg
         );
 
-        Scene scene = new Scene(box, 400, 300);
-        stage.setScene(scene);
+        stage.setScene(new Scene(box, 400, 300));
         stage.setTitle("Sign Up");
     }
 }
