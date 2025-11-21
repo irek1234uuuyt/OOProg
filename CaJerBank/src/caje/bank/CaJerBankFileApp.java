@@ -45,7 +45,7 @@ public class CaJerBankFileApp extends Application {
             UserAccount u = manager.login(acc, pin);
             if (u != null) {
                 currentUser = u;
-                stage.setScene(new Scene(mainMenu(stage), 400, 150));
+                stage.setScene(new Scene(mainMenu(stage), 400, 170));
                 stage.setTitle("CaJer eBank");
             } else {
                 msg.setText("Wrong Account or PIN\n");
@@ -73,7 +73,13 @@ public class CaJerBankFileApp extends Application {
         box.setPadding(new Insets(20));
 
         Label welcomeLabel = new Label("Welcome, " + currentUser.getName());
-        Label balanceLabel = new Label("Balance: ₱" + currentUser.getBalance());
+
+        Label balanceLabel = new Label("Balance: ");
+        Label pesoSign = new Label("₱" + currentUser.getBalance());
+        pesoSign.setStyle("-fx-font-size: 20px;");
+
+        HBox balanceBox = new HBox(5, balanceLabel, pesoSign);
+        balanceBox.setAlignment(Pos.BASELINE_LEFT);
 
         Button transferBtn = new Button("Transfer Funds");
         Button logoutBtn = new Button("Logout");
@@ -85,7 +91,7 @@ public class CaJerBankFileApp extends Application {
             showLogin(stage);
         });
 
-        box.getChildren().addAll(welcomeLabel, balanceLabel, transferBtn, logoutBtn);
+        box.getChildren().addAll(welcomeLabel, balanceBox, transferBtn, logoutBtn);
         return box;
     }
 
@@ -148,7 +154,7 @@ public class CaJerBankFileApp extends Application {
         });
 
         backBtn.setOnAction(e -> {
-            stage.setScene(new Scene(mainMenu(stage), 400, 150));
+            stage.setScene(new Scene(mainMenu(stage), 400, 170));
             stage.setTitle("CaJer eBank");
         });
 
