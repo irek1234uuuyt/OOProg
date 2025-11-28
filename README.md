@@ -1,10 +1,19 @@
 # CaJer Bank: OOP Final Project 
 
-## Section: C2B
+# Project Members
 
-## Author: 
-* CASALLA, FRED ERICK 
-* CABILLON, JERXEL
+**Section:** C2B
+**Course:** Object Oriented Programming
+
+## Members
+
+1. **Casalla, Fred Erick**
+   - Email: erickcasalla13@gmail.com
+   - GitHub: Erick, irek1234uuuyt
+
+2. **Cabillon, Jerxel**
+   - GitHub: sephy
+   - Email: 
 
 CaJer eBank is a simple JavaFX-based banking application created for our Object-Oriented Programming project. It allows users to create an account, log in, view their balance, and transfer money to other users. The project demonstrates the use of classes, inheritance, file handling, and basic GUI development in Java.
 
