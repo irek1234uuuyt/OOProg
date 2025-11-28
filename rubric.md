@@ -26,8 +26,20 @@ However, the code is relatively simple with limited complexity. Only one concret
 ### 4. Base Grade (10%)
 **Score:** 5/5
 
+### 5. Extra Points (up to 6)
+
+**Features:** 3/5
+- File saving
+- UI JavaFX
+
+**Code Quality:** 0.5/1.0
+- Variable naming: 0.25/0.5
+- Code organization: 0.25/0.5
+
+**Extra Points Total:** +3.5
+
 ---
 
-## Final Grade: 90/100
+## Final Grade: 90 + 3.5 = **93.5/100**
 
 *Assessment generated based on project analysis.*
